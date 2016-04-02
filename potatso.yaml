@@ -1,18 +1,12 @@
 proxies:
-- name: ss1
+- name: vultr
   type: shadowsocks
   host: 10.0.0.0
   port: 443
   encryption: rc4-md5
   password: 12345
 
-- name: linode
-  uri: ss://salsa20:12345@10.0.0.0:443
-
 ruleSets:
-- name: google
-  rules:
-  - DOMAIN-MATCH, google, PROXY
 
 - name: complex
   rules:
@@ -27,12 +21,6 @@ ruleSets:
 configGroups:
 - name: custom
   defaultToProxy: true
-  proxy: ss1
-  ruleSets: 
-  - google
-  - complex
-
-- name: custom ad
-  proxy: linode
+  proxy: vultr
   ruleSets: 
   - complex
